@@ -2,8 +2,8 @@ package ru.gb.androidstart.kotlintest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import ru.gb.androidstart.kotlintest.R
 import ru.gb.androidstart.kotlintest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(p0: View?) {
                 execute()
             }
-
         })
     }
 
@@ -36,6 +35,10 @@ class MainActivity : AppCompatActivity() {
                 binding.copyGenreTextView.text = movieCopy.genre.toString()
             }
         }
+
+        for (genre in Genre.values()) {
+            Log.d("@@@", "execute() " + genre.toString())
+        }
     }
-    
+
 }
