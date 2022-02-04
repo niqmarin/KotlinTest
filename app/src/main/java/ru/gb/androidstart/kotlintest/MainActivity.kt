@@ -2,7 +2,6 @@ package ru.gb.androidstart.kotlintest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import ru.gb.androidstart.kotlintest.databinding.ActivityMainBinding
 
@@ -36,9 +35,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        for (genre in Genre.values()) {
-            Log.d("@@@", "execute() " + genre.toString())
-        }
+        Thread(Runnable {
+            var i = 1.0
+            for (genre in Genre.values()) {
+                binding.cycleOutputTextView.text = genre.toString()
+                binding.cycleOutputTextView.setBackgroundResource(
+                        if (i % 2 == 0.0)
+                            R.color.pink_200
+                        else
+                            R.color.green_300
+                )
+                i++
+                Thread.sleep(1000)
+            }
+        }).start()
     }
 
 }
