@@ -36,11 +36,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         Thread(Runnable {
-            var i = 1.0
+            var i = 1
             for (genre in Genre.values()) {
                 binding.cycleOutputTextView.text = genre.toString()
                 binding.cycleOutputTextView.setBackgroundResource(
-                        if (i % 2 == 0.0)
+                        if (i % 2 == 0)
                             R.color.pink_200
                         else
                             R.color.green_300
